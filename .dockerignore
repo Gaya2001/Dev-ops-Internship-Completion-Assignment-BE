@@ -1,0 +1,14 @@
+target/
+.m2/
+.git/
+.idea/
+*.iml
+node_modules/
+.env
+*.md
+.vscode/
+.classpath
+.project
+.settings/
+**/.DS_Store
+**/Thumbs.db
