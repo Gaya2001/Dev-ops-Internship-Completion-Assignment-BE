@@ -45,4 +45,12 @@ jobs:
         run: |
           docker push us-central1-docker.pkg.dev/dev-ops-475910/kavindu/backend:latest
 
+      # # Step 8: Set up kubectl and authenticate with GKE
+      # - name: Authenticate with GKE
+      #   run: |
+      #     gcloud container clusters get-credentials ${{ secrets.GKE_CLUSTER_NAME }} --zone ${{ secrets.GKE_ZONE }} --project ${{ secrets.GCP_PROJECT_ID }}
 
+      # # Step 10: Restart deployment in GKE
+      # - name: Restart deployment
+      #   run: |
+      #     kubectl rollout restart deployment/backend -n kavindu
