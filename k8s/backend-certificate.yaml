@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: backend-cert
+  namespace: kavindu
+spec:
+  domains:
+    - api.kavinducloudops.tech  # Replace with your actual domain
