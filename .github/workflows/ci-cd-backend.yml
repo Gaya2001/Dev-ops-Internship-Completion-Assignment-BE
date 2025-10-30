@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'Spring-Boot-Backend/**'
+      - '.github/workflows/ci-cd-backend.yml'
 
 jobs:
   build-and-deploy:
@@ -45,18 +48,18 @@ jobs:
         run: |
           docker push us-central1-docker.pkg.dev/dev-ops-475910/kavindu/backend:latest
 
-      # # Step 8: Install GKE auth plugin
-      # - name: Install GKE auth plugin
-      #   run: |
-      #     sudo apt-get update
-      #     sudo apt-get install -y google-cloud-cli-gke-gcloud-auth-plugin
+      # Step 8: Install GKE auth plugin
+      - name: Install GKE auth plugin
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-cloud-cli-gke-gcloud-auth-plugin
 
-      # # Step 9: Set up kubectl and authenticate with GKE
-      # - name: Authenticate with GKE
-      #   run: |
-      #     gcloud container clusters get-credentials ${{ secrets.GKE_CLUSTER_NAME }} --zone ${{ secrets.GKE_ZONE }} --project ${{ secrets.GCP_PROJECT_ID }}
+      # Step 9: Set up kubectl and authenticate with GKE
+      - name: Authenticate with GKE
+        run: |
+          gcloud container clusters get-credentials ${{ secrets.GKE_CLUSTER_NAME }} --zone ${{ secrets.GKE_ZONE }} --project ${{ secrets.GCP_PROJECT_ID }}
 
-      # # Step 10: Restart deployment in GKE
-      # - name: Restart deployment
-      #   run: |
-      #     kubectl rollout restart deployment/backend -n kavindu
+      # Step 10: Restart deployment in GKE
+      - name: Restart deployment
+        run: |
+          kubectl rollout restart deployment/backend -n kavindu
