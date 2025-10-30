@@ -20,24 +20,4 @@ spec:
           image: us-central1-docker.pkg.dev/dev-ops-475910/kavindu/backend:latest
           ports:
             - containerPort: 5000
-          readinessProbe:
-            httpGet:
-              path: /api/auth/login
-              port: 5000
-              scheme: HTTP
-            initialDelaySeconds: 10
-            periodSeconds: 10
-            timeoutSeconds: 5
-            successThreshold: 1
-            failureThreshold: 3
-          livenessProbe:
-            httpGet:
-              path: /api/auth/login
-              port: 5000
-              scheme: HTTP
-            initialDelaySeconds: 30
-            periodSeconds: 15
-            timeoutSeconds: 5
-            successThreshold: 1
-            failureThreshold: 3
 

@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: backend-service
   namespace: kavindu
+  annotations:
+    cloud.google.com/backend-config: '{"default": "backend-health-check"}'
 spec:
   selector:
     app: backend
