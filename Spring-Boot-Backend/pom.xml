@@ -21,6 +21,7 @@
 
     <properties>
         <java.version>17</java.version>
+        <sonar.projectKey>Gaya2001_Dev-ops-Internship-Completion-Assignment-BE</sonar.projectKey>
         <sonar.organization>gaya2001</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
