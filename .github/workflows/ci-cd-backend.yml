@@ -33,11 +33,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          mvn -f Spring-Boot-Backend/pom.xml sonar:sonar \
-            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
-            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }} \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          mvn -f Spring-Boot-Backend/pom.xml sonar:sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
       # Step 5: Authenticate with GCP
       - name: Authenticate to GCP
